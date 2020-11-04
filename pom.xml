@@ -12,7 +12,8 @@
 
     <modules>
         <module>spring-application</module>
-    </modules>
+		<module>spring-web-mvc</module>
+	</modules>
 
 
 
