@@ -13,6 +13,7 @@
     <modules>
         <module>spring-application</module>
 		<module>spring-web-mvc</module>
+		<module>spring-mvc-rest</module>
 	</modules>
 
 

@@ -74,16 +74,24 @@ Spring  MVC 核心总控制器： DispatcherServlet
     * Controller -> 执行业务
     * DispatcherServlet#resolveViewName 视图解析
     * DispatcherServlet#render --> 视图渲染
-    
-Locale
+
+Locale: 国际化
+
+* Locale
+  * servlet
+    * ServletRequest#getLocale
+      * Accept-language;en,zh
+* `LocalContextHolder`
+  * `ThreadLocal`
+  * FrameworkServlet#initContextHolders
 
 ServletRequest#getLocale  
 
 LocaleContextHolder  
 
 MessageSource
-    
-    
+​    
+​    
 
 JSP 九大变量  = servlet
 ​    scope :
@@ -136,5 +144,37 @@ Spring 不想走j2ee
 </bean>
 ```
 
+## Spring Boot
 
+* MessageSource
+  * MessageSourceAutoConfiguration
+    * MessageSourceProperties
+
+   JSP --> 翻译成 java源文件 --> 编译成 Servlet.class --> Servlet运行
+
+
+
+## Rest 理论基础
+
+RPC (Remote procedure Call)
+
+* 语音相关t
+  * Java - RMI （Remote Method Invocation）
+  * .net - COM+
+* 语音无关
+  * SOA
+    * web Services
+      * SOAP (传输介质协议)
+        * http smtp(通讯协议)
+  * 微服务（MSA）
+    * REST
+      * HTML  JOSN XML 等等
+      * HTTP (通讯协议)
+        * HTTP 1.1 无状态
+          * keep-live
+        * HTTP 2  有状态连接
+      * 技术
+        * Spring客户端： RestTemplate
+        * Spring WebMVC : `RestController` = `@Controller` + `@ResponseBody` + `@RequestBody` 
+        * Spring Cloud :  `RestTemplate` 扩展 + `@LoadBalanced`
 
