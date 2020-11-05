@@ -70,6 +70,20 @@ TemplateData
 ## SpringMVC 模板渲染逻辑   
 
 Spring  MVC 核心总控制器： DispatcherServlet
+    * DispatcherServlet#doDispatch --> 拦截请求
+    * Controller -> 执行业务
+    * DispatcherServlet#resolveViewName 视图解析
+    * DispatcherServlet#render --> 视图渲染
+    
+Locale
+
+ServletRequest#getLocale  
+
+LocaleContextHolder  
+
+MessageSource
+    
+    
 
 JSP 九大变量  = servlet
 ​    scope :
