@@ -42,30 +42,53 @@ EL表达式
     
 学习技巧： thymeleaf -> thymeleafProperties    
 
+Thymeleaf  `ViewResolver`
+
+ *  通过模板名称解析模板资源
+ *  读取资源，并且渲染内容HTMl
+ *  HTML内容输出到 Response
+
+源码路径：
+
+- org.thymeleaf.TemplateEngine#process(java.lang.String, org.thymeleaf.context.IContext,Javal.io,writer)
+
+- org.thymeleaf.engine.TemplateManager#parseAndProcess
+
+  ​	
+
 ## 模板缓存
    默认 cache =true 
-   
+
+## 模板寻址
+
+Prefix + view-name + suffix
+
+ClassPathResource 
+
+TemplateData
+
 ## SpringMVC 模板渲染逻辑   
 
 Spring  MVC 核心总控制器： DispatcherServlet
-   
+
 JSP 九大变量  = servlet
-    scope :
-        PageContext
-             关注与当前页面
-        request     
-            关注当前请求    
-        session
-            关注当前会话
-        servletContext
-            当前当前应用
-    内置变量
-        out  (ServletResponse#getWritter)  
-        exception (Throwable)
-        config (ServletConfig)
-        page  
-        response
-    
+​    scope :
+​        PageContext
+​             关注与当前页面
+​        request     
+​            关注当前请求    
+​        session
+​            关注当前会话
+​        servletContext
+​            当前当前应用
+​    内置变量
+​        out  (ServletResponse#getWritter)  
+​        exception (Throwable)
+​        config (ServletConfig)
+​        page  
+​        response
+​    
+
 * Thymeleaf 内置变量
     *  上下文模型
         *   strings
@@ -74,14 +97,30 @@ JSP 九大变量  = servlet
 V: 
   * 视图对象
        SpringMVC View
-            forward:
-            redirect:
+       ​     forward:
+       ​     redirect:
        Struts:ForwardAction
-              redirectAction
+       ​       redirectAction
   * 视图处理对象
 JSP 
 * 性能最好
 
-
 Spring 不想走j2ee
+
+
+
+## JSP
+
+- InternalResourceViewResolver
+- JstlView
+
+```xml
+<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+    <property name="prefix" value="/WEB-INF/jsp/"/>
+    <property name="suffix" value=".jsp"/>
+</bean>
+```
+
+
 
