@@ -1,4 +1,4 @@
-package com.lq.micro.services.mvc;
+package com.lq.micro.services;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
