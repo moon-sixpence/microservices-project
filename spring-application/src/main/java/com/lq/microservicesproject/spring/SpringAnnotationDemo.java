@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
  * @description: <br/>
  * @date: 2020/11/2
  * @author: liuqiang
- * @email sx_moon_sixpence@163.com
+ * @email
  */
 @Configuration
 public class SpringAnnotationDemo {

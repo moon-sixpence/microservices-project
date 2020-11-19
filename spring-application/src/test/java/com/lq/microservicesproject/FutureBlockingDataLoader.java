@@ -17,9 +17,14 @@ public class FutureBlockingDataLoader extends DataLoader {
 
         ExecutorService executorService = Executors.newFixedThreadPool(3); // 创建线程池
 
-        runCompletely(executorService.submit(super::loadConfigurations));  //  耗时 >= 1s
-        runCompletely(executorService.submit(super::loadUsers));           //  耗时 >= 2s
-        runCompletely(executorService.submit(super::loadOrders));          //  耗时 >= 3s
+        Future<?> submit1 = executorService.submit(super::loadConfigurations);//  耗时 >= 1s
+        Future<?> sub2 = executorService.submit(super::loadUsers);           //  耗时 >= 2s
+        Future<?> sub3 = executorService.submit(super::loadOrders);          //  耗时 >= 3s
+
+        /*runCompletely(submit1);
+        runCompletely(sub2);
+        runCompletely(sub3);*/
+
         executorService.shutdown();
     } // 总耗时 sum(>= 1s, >= 2s, >= 3s)  >= 6s
 

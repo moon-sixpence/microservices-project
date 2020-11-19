@@ -1,11 +1,11 @@
 package com.lq.microservicesproject;
 
-import java.util.ArrayList;
+import java.util.List;
+
 import java.util.concurrent.CompletionService;
 import java.util.concurrent.ExecutorCompletionService;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.List;
 /**
  * @description:
  * @date: 2020/11/12
@@ -16,7 +16,6 @@ public class ParallelDataLoader extends DataLoader {
 
     protected void doLoad() {  // 并行计算
         ExecutorService executorService = Executors.newFixedThreadPool(3); // 创建线程池
-
 
 
         CompletionService completionService = new ExecutorCompletionService(executorService);
